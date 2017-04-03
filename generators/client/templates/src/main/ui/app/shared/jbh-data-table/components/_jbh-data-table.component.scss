@@ -1,0 +1,469 @@
+/* Type Ahead Styling */
+
+.jbh-data-table-input {
+  position: relative;
+  padding-bottom: 15px;
+  width: 40%;
+
+  input {
+    padding-right: 30px;
+  }
+  i{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #ccc;
+  }
+}
+
+
+/* JBH Table Styling */
+.jbh-data-table-container{
+
+  .jbh-data-filter {
+    float: left;
+    min-width:200px;
+    margin-right: -15px;
+  }
+
+  .jbh-data-view {
+    float:right;
+    min-width:200px;
+    margin-left: -15px;
+  }
+
+
+  .jbh-data-table {
+    overflow:hidden;
+    zoom:1;
+    padding: 0 15px;
+
+    thead tr th {
+      padding:15px;
+    }
+  }
+
+  @media (min-width: 768px){
+    .jbh-data-table {
+      overflow:hidden;
+      zoom:1;
+      //padding: 0;
+    }
+  }
+}
+
+.jbh-data-table-panel {
+
+  .panel-heading {
+    padding: 18px 15px;
+    line-height:30px;
+    background-color: transparent;
+    border:none;
+  }
+
+  .table-action-icons i {
+    padding-left: 10px;
+  }
+
+  span.panel-title {
+    font-size: 18px;
+  }
+
+  .datatable-header-inner {
+    font-weight: 600;
+    color: #777;
+  }
+
+}
+.jbh-data-table.table {
+  thead tr th {
+    border: none;
+  }
+  tbody td {
+    padding: 14px;
+  }
+}
+
+.datatable-header.datatable-header {
+  padding: 0px 15px;
+}
+.datatable-header-cell.datatable-header-cell {
+  height: 50px;
+  border-right: thin solid #efefef;
+}
+
+.datatable-header-cell-label {
+  padding: 0 10px;
+}
+.datatable-body-cell-label {
+  border-right: thin solid #efefef;
+
+  span {
+    padding: 0px 10px;
+  }
+
+}
+
+.datatable-body-row.datatable-body-row.datatable-row-even,
+.datatable-body-row.datatable-body-row.datatable-row-odd {
+  padding: 0px 15px;
+
+}
+
+.datatable-body-row.datatable-body-row.datatable-row-even {
+  padding: 0px 15px;
+  background-color: #F9F9F9;
+}
+
+.datatable-body-row.datatable-body-row.datatable-row-even:hover,
+.datatable-body-row.datatable-body-row.datatable-row-odd:hover {
+  padding: 0px 15px;
+  background-color: #EFEFEF;
+}
+
+.datatable-row-group .datatable-body-cell.datatable-body-cell {
+  line-height: 50px;
+  height: 50px;
+}
+
+
+
+
+
+
+
+
+/* Ng2 Styling */
+
+.jbh-data-table {
+  display: block;
+  overflow:hidden;
+  justify-content: center;
+  position: relative;
+  -webkit-transform: translate3d(0, 0, 0);
+
+  [hidden] {
+    display: none !important;
+  }
+
+  *, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+
+  /**
+   * Vertical Scrolling Adjustments
+   */
+  &.scroll-vertical {
+    .datatable-body {
+      overflow-y:auto;
+      .datatable-row-wrapper {
+        position: absolute;
+      }
+
+    }
+  }
+
+  /**
+   * Horizontal Scrolling Adjustments
+   */
+  &.scroll-horz {
+    .datatable-body {
+      overflow-x:auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+
+  /**
+   * Fixed Header Height Adjustments
+   */
+  &.fixed-header {
+    .datatable-header {
+      .datatable-header-inner{
+        white-space: nowrap;
+        .datatable-header-cell{
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  /**
+   * Fixed row height adjustments
+   */
+  &.fixed-row {
+    .datatable-scroll{
+      white-space: nowrap;
+
+      .datatable-body-row {
+        white-space: nowrap;
+
+        .datatable-body-cell {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+
+  /**
+   * Shared Styles
+   */
+  .datatable-body-row,
+  .datatable-header-inner {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    flex-direction: row;
+    -webkit-flex-flow: row;
+    -moz-flex-flow: row;
+    -ms-flex-flow: row;
+    -o-flex-flow: row;
+    flex-flow: row;
+  }
+
+  .datatable-body-cell,
+  .datatable-header-cell {
+    vertical-align: top;
+    display: inline-block;
+    line-height: 1.625;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .datatable-row-left,
+  .datatable-row-right {
+    z-index: 9;
+  }
+
+  .datatable-row-left,
+  .datatable-row-center,
+  .datatable-row-right {
+    position:relative;
+  }
+
+  /**
+   * Header Styles
+   */
+  .datatable-header {
+    display: block;
+    overflow: hidden;
+
+    .datatable-header-inner{
+      align-items: stretch;
+      -webkit-align-items: stretch;
+    }
+
+    .datatable-header-cell {
+      position: relative;
+      display: inline-block;
+
+      &.longpress {
+        cursor: move;
+      }
+
+      &.sortable {
+        cursor: pointer;
+      }
+
+      .sort-btn {
+        line-height: 100%;
+        vertical-align: middle;
+        display: inline-block;
+      }
+
+      .resize-handle{
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 5px;
+        padding: 0 8px;
+        visibility: hidden;
+        cursor: ew-resize;
+      }
+
+      &.resizeable:hover {
+        .resize-handle{
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+  /**
+   * Body Styles
+   */
+  .datatable-body {
+    position: relative;
+    z-index: 10;
+    display: block;
+    overflow:hidden;
+
+    .datatable-scroll{
+      display: inline-block;
+    }
+
+    .datatable-row-detail {
+      overflow-y: hidden;
+    }
+
+    .empty-row{
+      text-align: center;
+    }
+
+    .datatable-row-wrapper {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -moz-box-orient: vertical;
+      -moz-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+    }
+
+    .datatable-body-row {
+      outline:none;
+
+      > div {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+      }
+    }
+  }
+
+  /**
+   * Footer Styles
+   */
+  .datatable-footer {
+    display: block;
+    width: 100%;
+
+    > div {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 0 15px;
+    }
+
+    .selected-count {
+      .page-count {
+        flex: 1 1 40%;
+      }
+      .datatable-pager {
+        flex: 1 1 60%;
+      }
+    }
+
+    .page-count{
+      display: inline-block;
+      flex: 1 1 20%;
+    }
+
+    .page-control.btn-group {
+      margin: 0px 40px;
+      padding: 0px;
+      vertical-align: top;
+
+      .btn {
+        border: thin solid #ddd;
+        border-radius: 15px;
+        background-color: transparent;
+      }
+    }
+
+
+
+
+    .datatable-pager{
+      display: inline-block;
+      flex: 1 1 80%;
+      text-align: right;
+
+      .pager,
+      .pager li {
+        padding: 0;
+        margin: 0;
+        display: inline-block;
+        list-style: none;
+      }
+
+
+      .pager {
+        font-size: 12px;
+        border: thin solid #ddd;
+        border-radius: 15px;
+        overflow: hidden;
+        line-height: 20px;
+
+        li, li a{
+          outline: none;
+        }
+
+        li:nth-of-type(1) {
+          border-right: thin solid #ddd;
+          margin-right: -3px;
+
+          a {
+            padding:5px 10px;
+          }
+
+        }
+
+        li:nth-last-of-type(1) {
+          border-left: thin solid #ddd;
+          margin-left: -3px;
+
+          a {
+            padding:5px 10px;
+          }
+        }
+
+        li {
+          &.active {
+            font-size: 14px;
+            border-bottom: 1px solid #4b89bf;
+            margin: -1px 0 0 0;
+          }
+          a {
+            cursor: pointer;
+            display: inline-block;
+            border: none;
+            -webkit-border-radius:0;
+            -moz-border-radius:0;
+            border-radius:0;
+          }
+
+          &.disabled a {
+            cursor: not-allowed;
+          }
+        }
+      }
+    }
+  }
+}

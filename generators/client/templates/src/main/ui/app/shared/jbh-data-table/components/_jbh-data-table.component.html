@@ -1,0 +1,133 @@
+<div class="jbh-data-table-container">
+  <div class="row">
+    <div class="jbh-data-table ">
+      <datatable-typeahead-search *ngIf="typeAheadSuggestionService" [lookupService]="typeAheadSuggestionService" [searchService]="typeAheadSearchService" placeholder="Enter your address" (suggestionSelected)="onTypeAheadSearch($event)"></datatable-typeahead-search>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="jbh-data-table ">
+        <datatable-search [list]="rows" [typeAheadColumns]="typeAheadColumns"></datatable-search>
+      </div>
+    </div>
+    <div class="row">
+
+        <!--Data Table Filter Accordion-->
+        <div class="jbh-data-filter col-xs-12 col-sm-3  col-md-2 hidden hidden-xs"
+             [ngClass]="{'hidden': !isDataTableFilterOpen}">
+            <div class="panel panel-default">
+                <div class="panel-heading">FILTER BY</div>
+                <div  *ngFor='let col of filterColumns'  >
+                  <datatable-filter-column [rows]="rowsCache" [searchProperty]="col.prop" [displayProperty]="col.name" (onFilterChange)="onFilterChange($event)"></datatable-filter-column>
+                </div>
+            </div>
+        </div>
+
+        <!--Data Selection Split View-->
+        <div class="jbh-data-view col-xs-12 col-sm-6 hidden hidden-xs"
+             [ngClass]="{'hidden': !isDataTableDetailOpen}">
+            <div class="panel panel-default">
+                <div class="panel-heading">View</div>
+                <ul>
+                    <li *ngFor='let col of allColumns'>
+                        <input type='checkbox'
+                               [id]="col.name"
+                               (click)='toggle(col)'
+                               [checked]='isChecked(col)'/>
+                        <label [attr.for]="col.name">{{col.name}}</label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--JBH Data Table-->
+        <div class="jbh-data-table ">
+            <div class="panel panel-default jbh-data-table-panel">
+              <div class="panel-heading">
+                <span class="panel-title">{{title}}</span>
+                <div class="table-action-icons pull-right">
+
+                  <span *ngIf="externalMenu" dropdown >
+	                  <a href id="btn-append-to-body" dropdownToggle href="javascript:void(0);">
+							        <i class="icon icon-options"></i>
+							      </a>
+							      <ul class="dropdown-menu dropdown-menu-right" dropdownMenu  aria-labelledby="btn-append-to-body">
+							        <li *ngFor="let menu of externalMenu">
+							          <a class="dropdown-item" (click)="menuselect.emit(menu.id)">{{menu.name}}</a>
+							        </li>
+							        <span class="arrow top-right"></span>
+							      </ul>
+						      </span>
+                </div>
+              </div>
+
+                <!-- Data Table -->
+                <div visibility-observer (visible)="recalculate()">
+                    <datatable-header
+                            *ngIf="headerHeight"
+                            [sorts]="sorts"
+                            [sortType]="sortType"
+                            [scrollbarH]="scrollbarH"
+                            [innerWidth]="innerWidth"
+                            [offsetX]="offsetX"
+                            [columns]="columns"
+                            [headerHeight]="headerHeight"
+                            [reorderable]="reorderable"
+                            [sortAscendingIcon]="cssClasses.sortAscending"
+                            [sortDescendingIcon]="cssClasses.sortDescending"
+                            [allRowsSelected]="allRowsSelected"
+                            [selectionType]="selectionType"
+                            (sort)="onColumnSort($event)"
+                            (resize)="onColumnResize($event)"
+                            (reorder)="onColumnReorder($event)"
+                            (select)="onHeaderSelect($event)">
+                    </datatable-header>
+                    <datatable-body
+                            [rows]="rows"
+                            [scrollbarV]="scrollbarV"
+                            [scrollbarH]="scrollbarH"
+                            [loadingIndicator]="loadingIndicator"
+                            [rowHeight]="rowHeight"
+                            [rowCount]="rowCount"
+                            [offset]="offset"
+                            [trackByProp]="trackByProp"
+                            [columns]="columns"
+                            [pageSize]="pageSize"
+                            [offsetX]="offsetX"
+                            [rowDetail]="rowDetail"
+                            [selected]="selected"
+                            [innerWidth]="innerWidth"
+                            [bodyHeight]="bodyHeight"
+                            [selectionType]="selectionType"
+                            [emptyMessage]="messages.emptyMessage"
+                            [rowIdentity]="rowIdentity"
+                            [selectCheck]="selectCheck"
+                            (page)="onBodyPage($event)"
+                            (activate)="activate.emit($event)"
+                            (rowContextmenu)="rowContextmenu.emit($event)"
+                            (select)="onBodySelect($event)"
+                            (scroll)="onBodyScroll($event)">
+                    </datatable-body>
+                    <datatable-footer
+                            *ngIf="footerHeight"
+                            [rowCount]="rowCount"
+                            [pageSize]="pageSize"
+                            [offset]="offset"
+                            [footerHeight]="footerHeight"
+                            [totalMessage]="messages.totalMessage"
+                            [pagerLeftArrowIcon]="cssClasses.pagerLeftArrow"
+                            [pagerRightArrowIcon]="cssClasses.pagerRightArrow"
+                            [pagerPreviousIcon]="cssClasses.pagerPrevious"
+                            [selectedCount]="selected.length"
+                            [selectedMessage]="!!selectionType && messages.selectedMessage"
+                            [pagerNextIcon]="cssClasses.pagerNext"
+                            (page)="onFooterPage($event)">
+                    </datatable-footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

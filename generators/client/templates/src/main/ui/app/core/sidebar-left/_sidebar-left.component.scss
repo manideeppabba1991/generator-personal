@@ -1,0 +1,144 @@
+/*
+ * Sidebar
+ */
+
+
+/* Hide for mobile, show later */
+.sidebar {
+  position: fixed;
+  top: 61px;
+  bottom: 0;
+  left: -225px;
+  width:225px;
+  right: auto;
+  z-index: 1000;
+  padding: 0 20px;
+  overflow-x: hidden;
+  overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+  color: #A7A9AC;
+  background-color: #2B313D;
+  border-right: 1px solid #eee;
+
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+}
+
+
+@media (min-width: 768px) {
+  .sidebar {
+    left: -175px;
+  }
+}
+
+.sidebar.open {
+  left:0;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+}
+
+/* Sidebar navigation */
+.nav-sidebar-header,
+.nav-sidebar,
+.app-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+
+.app-sidebar {
+  z-index: 1000;
+  background-color: #0a0a0a;
+  padding: 10px;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+}
+.app-tile {
+  float: left;
+  background-color: #2b313d;
+  margin: 10px;
+  height: 80px;
+  width: 80px;
+}
+.app-tile-name {
+  margin: 0 auto;
+  text-align: center;
+  width: 80px;
+  line-height: 80px;
+  position: relative;
+  display: block;
+}
+.nav-sidebar-header {
+  font-size: 14px;
+  color: #fff;
+  background-color: #222731;
+  padding: 15px;
+  margin-bottom: 0;
+
+}
+#nav-sidebar-control i {
+  font-size: 14px;
+  color: #a7a9ac;
+  padding: 0 6px 0 10px;
+}
+
+.nav-sidebar > li > a {
+  padding: 10px 20px;
+  color: #A7A9AC;
+}
+
+.nav-sidebar-child > li > a {
+  padding: 10px 30px;
+  font-size: 12px;
+  color: #A7A9AC;
+}
+
+
+.nav-sidebar > li > a:hover,
+.nav-sidebar > li > a:focus,
+.nav-sidebar > li.active > a,
+.nav-sidebar > li.active > a:hover,
+.nav-sidebar > li.active > a:focus,
+.nav-sidebar-child > li > a:hover,
+.nav-sidebar-child > li > a:focus,
+.nav-sidebar-child > li.active > a,
+.nav-sidebar-child > li.active > a:hover,
+.nav-sidebar-child > li.active > a:focus {
+  background-color: #4B5160;
+}
+
+
+.nav-sidebar > li > a > i {
+  line-height: 20px;
+}
+
+
+
+.nav-sidebar-child {
+  background-color: #222731;
+}
+
+.nav-sidebar-child > li > a:hover {
+  color: #a7a9ac;
+}
+.nav-sidebar-child > li > a {
+  padding: 10px 30px;
+  font-size: 12px;
+}
+
+
+.nav-sidebar-child > li {
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+}
+.nav-sidebar-child.open > li {
+  max-height: 200px;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+}

@@ -1,0 +1,30 @@
+<!--<div class="input-group typeahead">-->
+<div class="dropdown" [style.width.px]="width">
+    <div class="input-group">
+      <input #inputElement
+         class="form-control"
+         [placeholder]="placeholder"
+         [(ngModel)]="input"
+         type="text"
+         [ngClass]="{'typeahead-input': true, 'typeahead-input-has-selection': hasSelection()}"
+         typeahead="off"
+         spellcheck="false"
+         (keyup)="inputKeyUp($event)"
+         (keydown)="inputKeyDown($event)"
+         (focus)="inputFocus($event)"
+         (blur)="inputBlur($event)"
+         [disabled]="isDisabled"   >
+      <span class="input-group-btn">
+        <button (click)="onSearchButtonClick($event)" class="btn btn-default"  type="button">Go!</button>
+      </span>
+    </div>
+
+    <ul class="typeahead-suggestions"  [hidden]="!areSuggestionsVisible"  [style.width.px]="width" (mouseout)="suggestionsMouseOut($event)">
+      <li *ngFor="let suggestion of suggestions"
+          (mouseover)="suggestionMouseOver(suggestion)"
+          (mousedown)="suggestionMouseDown(suggestion)"
+          [ngClass]="{'typeahead-suggestion-active': activeSuggestion===suggestion}">{{ deepValueGetter(suggestion, displayProperty ? displayProperty : searchProperty) }}</li>
+    </ul>
+
+  </div>
+

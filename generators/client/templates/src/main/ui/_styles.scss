@@ -1,0 +1,144 @@
+/* Use this file to importing global styles */
+
+/* We need to break the style.bundle.css into
+ * multiple files to create a critical path css for
+ * caching. Fall back is load separate critical path file
+ * directly on index.html  This will also reduce the size
+ * of the bundle */
+
+// Import Custom Fonts
+@import "assets/scss/themes/default/typography";
+
+// Import Custom Icons
+@import "assets/scss/icons/simple-line-icons-2.4.1";
+@import "assets/scss/icons/font-awesome-4.7.0";
+
+// Import Custom Bootstrap
+@import "assets/scss/bootstrap";
+
+// Import Default Theme
+@import "assets/scss/themes/default/variables";
+
+// Global Styles
+@import 'assets/scss/loader';
+
+//Import Custom Utility Positions
+@import "assets/scss/position";
+
+
+
+/* You can add global styles to this file, and also import other style files */
+body {
+  padding-top: 60px;
+}
+
+/*
+ * Main content
+ */
+
+
+.main {
+  position: relative;
+  margin: 0;
+  left: 0;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+}
+
+.sidebar-locked .main {
+  margin: 0;
+  left: 225px;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+}
+
+.main .page-header {
+  margin-top: 30px;
+}
+
+.router-container {
+  margin-left: 0;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+}
+.router-container.sidebar-locked{
+  margin-left: 0;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+
+}
+
+@media( min-width:768px ) {
+  .router-container.sidebar-locked{
+    margin-left: 225px;
+  }
+
+  .sidebar-locked .main {
+    position: relative;
+    left: 0;
+  }
+
+  .main {
+    margin: 0 0 0 50px;
+  }
+}
+
+
+h1.panel-title {
+  font-size: 36px;
+}
+h2.panel-title {
+  font-size: 30px;
+}
+h3.panel-title {
+  font-size: 24px;
+}
+h4.panel-title {
+  font-size: 18px
+}
+h5.panel-title {
+  font-size: 14px
+}
+h6.panel-title {
+  font-size: 10px;
+}
+
+.col-md-4 {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/*prevent user selection highlighting*/
+i {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

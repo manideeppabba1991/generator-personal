@@ -1,0 +1,66 @@
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+nav.navbar.navbar-fixed-top {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  background-color: #FFF;
+  border: 0;
+}
+nav .navbar-nav>li>a {
+  padding: 20px 20px;
+  color: #A7A9AC;
+}
+nav .navbar-nav>li:nth-of-type(4)>a {
+  margin-right: 10px;
+}
+
+nav .profile-img img {
+  height: 60px;
+  border-bottom: 4px solid #3594D5;
+}
+
+.brand-container .navbar-brand {
+  width: 225px;
+  height:60px;
+  padding:12px;
+  text-align: center;
+
+}
+.brand-container .navbar-brand>img {
+  display: inline-block;
+  line-height: 20px;
+  height: 35px;
+}
+
+.app-name {
+  display: inline-block;
+  padding: 20px 0;
+  line-height: 20px;
+  color: #404040;
+  font-size: 18px;
+  float:left; /*Hack for Header*/
+}
+
+.navbar-mobile-container {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  line-height: 65px;
+}
+
+.navbar-brand-center a {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 250px;
+}
+
+.navbar-brand-center a img {
+  margin: 0 auto;
+}
+.navbar-mobile-container i {
+  padding: 0 10px;
+}

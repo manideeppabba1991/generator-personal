@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: @project.artifactId@
+
+info:
+  build:
+    artifact: @project.artifactId@
+    name: @project.name@
+    description: @project.description@
+    version: @project.version@
+
+routes: {"/dashboard", "/account-search", "/account-create", "/location-search", "/location-create", "/warehouse-search", "/settings"}
+
+zuul:
+  routes:
+    elastic:
+      path: /elastic/**
+      url: http://elasticsearch-dev:9200/cci/customer
+
+
+ribbon:
+  eureka:
+    enabled: false
+

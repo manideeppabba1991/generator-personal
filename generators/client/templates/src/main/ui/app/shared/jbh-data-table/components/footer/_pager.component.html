@@ -1,0 +1,43 @@
+
+
+
+<div class="page-control btn-group">
+    <button type="button" class="btn ">Action</button>
+
+    <!--<div class="dropdown-menu">-->
+        <!--<a class="dropdown-item" href="#">Action</a>-->
+        <!--<a class="dropdown-item" href="#">Another action</a>-->
+        <!--<a class="dropdown-item" href="#">Something else here</a>-->
+        <!--<div class="dropdown-divider"></div>-->
+        <!--<a class="dropdown-item" href="#">Separated link</a>-->
+    <!--</div>-->
+</div>
+
+<ul class="pager">
+    <!--<li [class.disabled]="!canPrevious()">-->
+        <!--<a href="javascript:void(0)" (click)="selectPage(1)">-->
+            <!--<i class="{{pagerPreviousIcon}}"></i>-->
+        <!--</a>-->
+    <!--</li>-->
+
+    <li [class.disabled]="!canPrevious()">
+        <a href="javascript:void(0)" (click)="prevPage()">
+            <i class="{{pagerLeftArrowIcon}}"></i>
+        </a>
+    </li>
+    <li class="pages"
+        *ngFor="let pg of pages"
+        [class.active]="pg.number === page">
+        <a href="javascript:void(0)" (click)="selectPage(pg.number)"> {{pg.text}} </a>
+    </li>
+    <li [class.disabled]="!canNext()">
+        <a href="javascript:void(0)" (click)="nextPage()">
+            <i class="{{pagerRightArrowIcon}}"></i>
+        </a>
+    </li>
+    <!--<li [class.disabled]="!canNext()">-->
+        <!--<a href="javascript:void(0)" (click)="selectPage(totalPages)">-->
+            <!--<i class="{{pagerNextIcon}}"></i>-->
+        <!--</a>-->
+    <!--</li>-->
+</ul>
